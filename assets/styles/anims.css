@@ -1,0 +1,151 @@
+/* Attack animations */
+@keyframes team1attacker1Opponent1 {
+    0% { transform: scale(110%); left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(15deg); }
+    20% { left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { left: 0;  transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker1Opponent2 {
+    0% { transform: scale(110%); left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 100px; left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { left: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker1Opponent3 {
+    0% { transform: scale(110%); top: 0; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 200px; left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 0; left: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker2Opponent1 {
+    0% { transform: scale(110%); top: 100px; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(15deg); }
+    20% { top: 0; left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 100px; left: 0;  transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker2Opponent2 {
+    0% { transform: scale(110%); top: 100px; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 100px; left: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker2Opponent3 {
+    0% { transform: scale(110%); top: 100px; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 200px; left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 100px; left: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker3Opponent1 {
+    0% { transform: scale(110%); top: 200px; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(15deg); }
+    20% { top: 0; left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 200px; left: 0;  transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker3Opponent2 {
+    0% { transform: scale(110%); top: 200px; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 100px; left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 200px; left: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team1attacker3Opponent3 {
+    0% { transform: scale(110%); top: 200px; left: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { left: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 200px; left: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker1Opponent1 {
+    0% { transform: scale(110%); right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(15deg); }
+    20% { right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { right: 0;  transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker1Opponent2 {
+    0% { transform: scale(110%); right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 100px; right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { right: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker1Opponent3 {
+    0% { transform: scale(110%); top: 0; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 200px; right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 0; right: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker2Opponent1 {
+    0% { transform: scale(110%); top: 100px; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(15deg); }
+    20% { top: 0; right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 100px; right: 0;  transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker2Opponent2 {
+    0% { transform: scale(110%); top: 100px; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 100px; right: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker2Opponent3 {
+    0% { transform: scale(110%); top: 100px; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 200px; right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 100px; right: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker3Opponent1 {
+    0% { transform: scale(110%); top: 200px; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(15deg); }
+    20% { top: 0; right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 200px; right: 0;  transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker3Opponent2 {
+    0% { transform: scale(110%); top: 200px; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { top: 100px; right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 200px; right: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+@keyframes team2attacker3Opponent3 {
+    0% { transform: scale(110%); top: 200px; right: 0; transform-origin: 50%; z-index: 500; }
+    5% { transform: rotateZ(-15deg); }
+    20% { right: 200%; }
+    31% { transform: rotateZ(0deg); }
+    100% { top: 200px; right: 0; transform: rotateZ(0) scale(100%); z-index: 1; }
+}
+
+
+@keyframes showHit {
+    18% { opacity: 0; }
+    25% { opacity: 1; }
+    55% { opacity: 0; }
+}

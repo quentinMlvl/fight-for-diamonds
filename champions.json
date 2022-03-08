@@ -1,0 +1,423 @@
+{
+    "champions": [{
+            "atk": 4,
+            "hp": 81,
+            "prot": true,
+            "name": "Alexstrasza",
+            "icon": "alexstrasza.png"
+        },
+        {
+            "atk": 8,
+            "hp": 92,
+            "prot": true,
+            "name": "Alexstrasza fireform",
+            "icon": "alexstrasza-fireform.png"
+        },
+        {
+            "atk": 5,
+            "hp": 50,
+            "prot": true,
+            "name": "Anduin Wrynn",
+            "icon": "anduin-wrynn.png"
+        },
+        {
+            "atk": 1,
+            "hp": 1,
+            "prot": false,
+            "name": "Angry chicken",
+            "icon": "angry-chicken.png"
+        },
+        {
+            "atk": 1,
+            "hp": 21,
+            "prot": false,
+            "name": "Annoy-o-tron",
+            "icon": "annoy-o-tron.png"
+        },
+        {
+            "atk": 10,
+            "hp": 51,
+            "prot": true,
+            "name": "Arch-thief Rafaam",
+            "icon": "arch-thief-rafaam.png"
+        },
+        {
+            "atk": 3,
+            "hp": 68,
+            "prot": true,
+            "name": "Astromancer",
+            "icon": "astromancer.png"
+        },
+        {
+            "atk": 3,
+            "hp": 72,
+            "prot": true,
+            "name": "Azalina Soulthief",
+            "icon": "azalina-soulthief.png"
+        },
+        {
+            "atk": 4,
+            "hp": 29,
+            "prot": true,
+            "name": "Baku the Mooneater",
+            "icon": "baku-the-mooneater.png"
+        },
+        {
+            "atk": 10,
+            "hp": 66,
+            "prot": false,
+            "name": "Batterhead",
+            "icon": "batterhead.png"
+        },
+        {
+            "atk": 6,
+            "hp": 34,
+            "prot": false,
+            "name": "Blink fox",
+            "icon": "blink-fox.png"
+        },
+        {
+            "atk": 4,
+            "hp": 88,
+            "prot": true,
+            "name": "Brann Bronzebeard",
+            "icon": "brann-bronzebeard.png"
+        },
+        {
+            "atk": 3,
+            "hp": 4,
+            "prot": false,
+            "name": "Brave archer",
+            "icon": "brave-archer.png"
+        },
+        {
+            "atk": 6,
+            "hp": 71,
+            "prot": true,
+            "name": "Cairne Bloodhoof",
+            "icon": "cairne-bloodhoof.png"
+        },
+        {
+            "atk": 5,
+            "hp": 65,
+            "prot": true,
+            "name": "Deathstalker Rexxar",
+            "icon": "deathstalker-rexxar.png"
+        },
+        {
+            "atk": 15,
+            "hp": 98,
+            "prot": true,
+            "name": "Diablo the Lord of Terror",
+            "icon": "diablo-the-lord-of-terror.png"
+        },
+        {
+            "atk": 5,
+            "hp": 52,
+            "prot": true,
+            "name": "Edwin VanCleef",
+            "icon": "edwin-vancleef.png"
+        },
+        {
+            "atk": 5,
+            "hp": 63,
+            "prot": true,
+            "name": "Emeriss",
+            "icon": "emeriss.png"
+        },
+        {
+            "atk": 5,
+            "hp": 82,
+            "prot": false,
+            "name": "Felsoul inquisitor",
+            "icon": "felsoul-inquisitor.png"
+        },
+        {
+            "atk": 10,
+            "hp": 74,
+            "prot": true,
+            "name": "Fire crane Jaina",
+            "icon": "fire-crane-jaina.png"
+        },
+        {
+            "atk": 7,
+            "hp": 66,
+            "prot": true,
+            "name": "Fire mage Jaina",
+            "icon": "fire-mage-jaina.png"
+        },
+        {
+            "atk": 1,
+            "hp": 7,
+            "prot": false,
+            "name": "Friendly bartender",
+            "icon": "friendly-bartender.png"
+        },
+        {
+            "atk": 7,
+            "hp": 96,
+            "prot": true,
+            "name": "Garrosh Hellscream",
+            "icon": "garrosh-hellscream.png"
+        },
+        {
+            "atk": 5,
+            "hp": 99,
+            "prot": true,
+            "name": "Guldan",
+            "icon": "guldan.png"
+        },
+        {
+            "atk": 3,
+            "hp": 10,
+            "prot": true,
+            "name": "Hagatha the witch",
+            "icon": "hagatha-the-witch.png"
+        },
+        {
+            "atk": 10,
+            "hp": 17,
+            "prot": true,
+            "name": "Kabal crystal runner",
+            "icon": "kabal-crystal-runner.png"
+        },
+        {
+            "atk": 10,
+            "hp": 78,
+            "prot": true,
+            "name": "King Togwaggle",
+            "icon": "king-togwaggle.png"
+        },
+        {
+            "atk": 6,
+            "hp": 38,
+            "prot": false,
+            "name": "Kor'kron elite",
+            "icon": "kor-kron-elite.png"
+        },
+        {
+            "atk": 10,
+            "hp": 1,
+            "prot": true,
+            "name": "Leeroy Jenkins",
+            "icon": "leeroy-jenkins.png"
+        },
+        {
+            "atk": 8,
+            "hp": 90,
+            "prot": true,
+            "name": "Lord Jaraxxus",
+            "icon": "lord-jaraxxus.png"
+        },
+        {
+            "atk": 1,
+            "hp": 62,
+            "prot": true,
+            "name": "Madame Lazul",
+            "icon": "madame-lazul.png"
+        },
+        {
+            "atk": 7,
+            "hp": 43,
+            "prot": true,
+            "name": "Mal'Ganis",
+            "icon": "mal-ganis.png"
+        },
+        {
+            "atk": 6,
+            "hp": 74,
+            "prot": true,
+            "name": "Medivh",
+            "icon": "medivh.png"
+        },
+        {
+            "atk": 7,
+            "hp": 16,
+            "prot": false,
+            "name": "Mistress of pain",
+            "icon": "mistress-of-pain.png"
+        },
+        {
+            "atk": 1,
+            "hp": 56,
+            "prot": true,
+            "name": "Morgl the oracle",
+            "icon": "morgl-the-oracle.png"
+        },
+        {
+            "atk": 6,
+            "hp": 42,
+            "prot": true,
+            "name": "Night prowler",
+            "icon": "night-prowler.png"
+        },
+        {
+            "atk": 9,
+            "hp": 70,
+            "prot": true,
+            "name": "Onyxia",
+            "icon": "onyxia.png"
+        },
+        {
+            "atk": 7,
+            "hp": 37,
+            "prot": false,
+            "name": "Pandaren druid",
+            "icon": "pandaren-druid.png"
+        },
+        {
+            "atk": 5,
+            "hp": 11,
+            "prot": true,
+            "name": "Patches the pirate",
+            "icon": "patches-the-pirate.png"
+        },
+        {
+            "atk": 7,
+            "hp": 21,
+            "prot": false,
+            "name": "Pogo hopper",
+            "icon": "pogo-hopper.png"
+        },
+        {
+            "atk": 8,
+            "hp": 61,
+            "prot": true,
+            "name": "Priest Anduin Wrynn",
+            "icon": "priest-anduin-wrynn.png"
+        },
+        {
+            "atk": 4,
+            "hp": 63,
+            "prot": true,
+            "name": "Prince Keleseth",
+            "icon": "prince-keleseth.png"
+        },
+        {
+            "atk": 8,
+            "hp": 13,
+            "prot": false,
+            "name": "Psych-o-tron",
+            "icon": "psych-o-tron.png"
+        },
+        {
+            "atk": 9,
+            "hp": 89,
+            "prot": true,
+            "name": "Scourgelord Garrosh",
+            "icon": "scourgelord-garrosh.png"
+        },
+        {
+            "atk": 5,
+            "hp": 8,
+            "prot": true,
+            "name": "Secretkeeper",
+            "icon": "secretkeeper.png"
+        },
+        {
+            "atk": 9,
+            "hp": 77,
+            "prot": true,
+            "name": "Shadowreaper Anduin",
+            "icon": "shadowreaper-anduin.png"
+        },
+        {
+            "atk": 8,
+            "hp": 30,
+            "prot": true,
+            "name": "Shudderwock",
+            "icon": "shudderwock.png"
+        },
+        {
+            "atk": 5,
+            "hp": 35,
+            "prot": true,
+            "name": "Spectral witchwood grizzly",
+            "icon": "spectral-witchwood-grizzly.png"
+        },
+        {
+            "atk": 4,
+            "hp": 97,
+            "prot": true,
+            "name": "Splitting sapling",
+            "icon": "splitting-sapling.png"
+        },
+        {
+            "atk": 9,
+            "hp": 23,
+            "prot": true,
+            "name": "Stargazer Luna",
+            "icon": "stargazer-luna.png"
+        },
+        {
+            "atk": 7,
+            "hp": 18,
+            "prot": false,
+            "name": "Sunkeeper Tarim",
+            "icon": "sunkeeper-tarim.png"
+        },
+        {
+            "atk": 8,
+            "hp": 84,
+            "prot": true,
+            "name": "Sylvanas Windrunner",
+            "icon": "sylvanas-windrunner.png"
+        },
+        {
+            "atk": 5,
+            "hp": 83,
+            "prot": true,
+            "name": "Tarecgosa",
+            "icon": "tarecgosa.png"
+        },
+        {
+            "atk": 9,
+            "hp": 90,
+            "prot": true,
+            "name": "The Lich King",
+            "icon": "the-lich-king.png"
+        },
+        {
+            "atk": 5,
+            "hp": 87,
+            "prot": true,
+            "name": "Thrall Deathseer",
+            "icon": "thrall-deathseer.png"
+        },
+        {
+            "atk": 6,
+            "hp": 78,
+            "prot": true,
+            "name": "Uther of the Ebon Blade",
+            "icon": "uther-of-the-ebon-blade.png"
+        },
+        {
+            "atk": 6,
+            "hp": 75,
+            "prot": true,
+            "name": "Valeera Sanguinar",
+            "icon": "valeera-sanguinar.png"
+        },
+        {
+            "atk": 5,
+            "hp": 44,
+            "prot": false,
+            "name": "Witchwood grizzly",
+            "icon": "witchwood-grizzly.png"
+        },
+        {
+            "atk": 1,
+            "hp": 74,
+            "prot": true,
+            "name": "Witchwood piper",
+            "icon": "witchwood-piper.png"
+        },
+        {
+            "atk": 5,
+            "hp": 75,
+            "prot": true,
+            "name": "Ysera",
+            "icon": "ysera.png"
+        }
+    ]
+}

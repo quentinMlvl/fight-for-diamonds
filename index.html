@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight for Diamond! - idle game</title>
+    <link rel="stylesheet" href="assets/styles/reset.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+    <main id="app">
+        <section id="startGameSection">
+            <button id="startGame">[ START NEW GAME ]</button>
+
+            <div id="createPlayer">
+                <form action="">
+                    <fieldset>
+                        <div class="formRow">
+                            <div class="formCell"><label for="playerName">Player name: </label></div>
+                            <div class="formCell"><input type="text" name="playerName" id="playerName"></div>
+                        </div>
+                        <div class="formRow">
+                            <div class="formCell formButn"><button type="submit">Save player</button></div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="selectChampions">
+                <h2><span id="selectChampionsTitleSpan"></span>Select your champions</h2>
+                <div id="teamSelection">
+                    <h3>Your team : </h3>
+                    <div id="selectedChampions">
+                        <div id="firstSelected">
+                            <div>First</div>
+                            <div class="selectedChampion"></div>
+                        </div>
+                        <div id="secondSelected">
+                            <div>Second</div>
+                            <div class="selectedChampion"></div>
+                        </div>
+                        <div id="thirdSelected">
+                            <div>Third</div>
+                            <div class="selectedChampion"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="championsPool"></div>
+            </div>
+        </section>
+
+        <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-agi.png"> -->
+        <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-str.png"> -->
+        <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-int.png"> -->
+
+        <div id="splashScreen">
+            <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/ffd-title.png" alt="Fight for Diamonds!" title="Fight for Diamonds!">
+        </div>
+
+    </main>
+    <footer><p>Coded with love by Quentin & Marc ♥</p></footer>
+    <script src="index.js" type="module" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>

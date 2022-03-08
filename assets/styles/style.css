@@ -1,0 +1,247 @@
+html, body { width: 100%; height: 100%; min-height: 100%; /*overflow: hidden*/; margin: 0; padding: 0; } 
+#app { position: relative; width: 100%; height: 100%; min-height: 100%; max-width: 468px; /*overflow: hidden*/; margin: 0 auto; }
+
+
+footer {
+    width: 100%;
+    max-width: 468px;
+    margin: 0 auto;
+}
+/*** STYLE FOR THE CREATION OF A GAME ***/
+#createPlayer, #selectChampions {
+    display: none;
+}
+
+#championsPool {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+.championSelectedIcon,
+.championSelectionIcon {
+    width: 100%;
+    height: auto;
+    min-width: 70px;
+    min-height: 70px;
+}
+
+#selectedChampions {
+    background-color: burlywood;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-around;
+}
+
+#selectedChampions > div {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#selectedChampions .selectedChampion {
+    border: 1px solid red;
+    min-width: 70px;
+    min-height: 70px;
+}
+
+
+.chosen {
+    filter: grayscale();
+}
+
+
+/*** STYLE FOR CHAMPION'S FRAME ***/
+
+
+#arena {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+flex-direction: row;
+width: 100%;
+background: blue;
+}
+
+#arena .team {
+position: relative;
+width: 100px;
+height: 300px;
+}
+
+#arena #team1 {
+left: 0;
+right: auto;
+background: yellow;
+}
+
+#arena #noMansLand {
+flex-grow: 1;
+}
+
+#arena #team2 {
+left: auto;
+right: 0;
+background: lime;
+}
+
+
+
+
+
+
+.champion {
+position: absolute;
+width: 100px;
+height: 100px;
+}
+
+.champion.champFirst { top: 0; }
+.champion.champSecond { top: 100px; }
+.champion.champThird { top: 200px; }
+
+.champion .wrapper {
+position: relative;
+width: 100%;
+height: 100%;
+}
+.champion .wrapper .championFrame {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+
+.champion .wrapper .championFrame figure {
+position: relative;
+width: 100%;
+height: 100%;
+}
+
+.champion .wrapper .championFrame figure img {
+position: absolute;
+z-index: 20;
+}
+
+.champion .wrapper .championFrame figure img.championStat { top: 5px; left: 50%; width: 24px; height: 24px; z-index: 10; transform: translateX(-50%); } 
+.champion .wrapper .championFrame figure img.championBord { top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: auto; z-index: 5; } 
+.champion .wrapper .championFrame figure img.championIcon { top: 50%; left: 50%; width: 60px; height: auto; border-radius: 100%; transform: translateX(-50%) translateY(-50%); }
+.champion.ko .wrapper .championFrame figure img.championIcon { filter: grayscale(1); }
+.champion .wrapper .championFrame figure figcaption { display: none; }
+
+.champion .wrapper .championDatas {
+position: absolute;
+left: 0;
+bottom: 0;
+right: 0;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+width: 100%;
+z-index: 15;
+}
+
+.champion .wrapper .championDatas div {
+display: flex;
+align-content: center;
+width: 50%;
+height: 32px;
+font-family: sans-serif;
+font-size: 16px;
+font-weight: bold;
+color: #FFFFFF;
+text-shadow: 0 0 3px #000000;
+}
+
+.champion .wrapper .championDatas .championHP {
+background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-hpoint.png') no-repeat 50% 50%;
+}
+
+.champion .wrapper .championDatas .championATK {
+background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-attack.png') no-repeat 50% 50%;
+}
+
+.champion .wrapper .championDatas div span {
+align-self: center;
+display: block;
+width: 100%;
+text-align: center;
+}
+
+
+.champion .wrapper .championHitBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 25;
+}
+
+.champion .wrapper .championHitBox .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.champion .wrapper .championHitBox .wrapper img {
+position: absolute;
+top: 0;
+opacity: 0;
+}
+
+.champion.attacks .wrapper .championHitBox .wrapper img.hit {
+    animation-name: showHit;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0,1,1,1);
+}
+
+#team1 .champion .wrapper .championHitBox .wrapper img {
+right: 0;
+}
+#team2 .champion .wrapper .championHitBox .wrapper img {
+left: 0;
+}
+
+.champion.ko .wrapper .championHitBox .wrapper img.hitKO {
+opacity: 1;
+}
+
+.champion.attacks {
+animation-duration: 3000ms;
+animation-iteration-count: infinite;
+animation-timing-function: cubic-bezier(0,1,1,1);
+}
+
+
+
+
+#team1 .champion.attacks.attacker1Opponent1 { animation-name: team1attacker1Opponent1; }
+#team1 .champion.attacks.attacker1Opponent2 { animation-name: team1attacker1Opponent2; }
+#team1 .champion.attacks.attacker1Opponent3 { animation-name: team1attacker1Opponent3; }
+
+#team1 .champion.attacks.attacker2Opponent1 { animation-name: team1attacker2Opponent1; }
+#team1 .champion.attacks.attacker2Opponent2 { animation-name: team1attacker2Opponent2; }
+#team1 .champion.attacks.attacker2Opponent3 { animation-name: team1attacker2Opponent3; }
+
+#team1 .champion.attacks.attacker3Opponent1 { animation-name: team1attacker3Opponent1; }
+#team1 .champion.attacks.attacker3Opponent2 { animation-name: team1attacker3Opponent2; }
+#team1 .champion.attacks.attacker3Opponent3 { animation-name: team1attacker3Opponent3; }
+
+
+#team2 .champion.attacks.attacker1Opponent1 { animation-name: team2attacker1Opponent1; }
+#team2 .champion.attacks.attacker1Opponent2 { animation-name: team2attacker1Opponent2; }
+#team2 .champion.attacks.attacker1Opponent3 { animation-name: team2attacker1Opponent3; }
+
+#team2 .champion.attacks.attacker2Opponent1 { animation-name: team2attacker2Opponent1; }
+#team2 .champion.attacks.attacker2Opponent2 { animation-name: team2attacker2Opponent2; }
+#team2 .champion.attacks.attacker2Opponent3 { animation-name: team2attacker2Opponent3; }
+
+#team2 .champion.attacks.attacker3Opponent1 { animation-name: team2attacker3Opponent1; }
+#team2 .champion.attacks.attacker3Opponent2 { animation-name: team2attacker3Opponent2; }
+#team2 .champion.attacks.attacker3Opponent3 { animation-name: team2attacker3Opponent3; }
