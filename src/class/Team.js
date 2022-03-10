@@ -15,7 +15,11 @@ class Team {
     get third() { return this._third }
     get fighters() { return [ this.first, this.second, this.third ] }
     get allFightersNotDead(){ return this.fighters.some(f => f.isAlive); }
-
+    get isReady(){
+        return this.fighters.every((f) => { 
+            return !!f?.name 
+        });
+    }
 
     addAChampion(champ){
         try {
@@ -36,6 +40,18 @@ class Team {
             return -1
         }
         
+    }
+
+    removeChampion(index){
+        switch (index) {
+            case 0: this._first = null;
+                break;
+            case 1: this._second = null;
+                break;
+            case 2: this._third = null;
+            default:
+                break;
+        }
     }
 
     set first(champ){

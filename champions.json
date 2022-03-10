@@ -98,6 +98,13 @@
             "icon": "cairne-bloodhoof.png"
         },
         {
+            "atk": 1,
+            "hp": 100,
+            "prot": false,
+            "name": "David Goodenough",
+            "icon": "david-goodenough.png"
+        },
+        {
             "atk": 5,
             "hp": 65,
             "prot": true,
@@ -179,28 +186,44 @@
             "hp": 17,
             "prot": true,
             "name": "Kabal crystal runner",
-            "icon": "kabal-crystal-runner.png"
+            "icon": "kabal-crystal-runner.png",
+            "sounds": {
+                "start": "kabal-crystal-runner-start",
+                "die": "kabal-crystal-runner-die"
+            }
         },
         {
             "atk": 10,
             "hp": 78,
             "prot": true,
             "name": "King Togwaggle",
-            "icon": "king-togwaggle.png"
+            "icon": "king-togwaggle.png",
+            "sounds": {
+                "start": "king-togwaggle-start",
+                "die": "king-togwaggle-die"
+            }
         },
         {
             "atk": 6,
-            "hp": 38,
-            "prot": false,
-            "name": "Kor'kron elite",
-            "icon": "kor-kron-elite.png"
+            "hp": 68,
+            "prot": true,
+            "name": "jaina Proudmore",
+            "icon": "jaina-proudmore.png",
+            "sounds": {
+                "start": "jaina-proudmore-start",
+                "die": "jaina-proudmore-die"
+            }
         },
         {
             "atk": 10,
             "hp": 1,
             "prot": true,
             "name": "Leeroy Jenkins",
-            "icon": "leeroy-jenkins.png"
+            "icon": "leeroy-jenkins.png",
+            "sounds": {
+                "start": "leeroy-jenkins-start",
+                "die": "leeroy-jenkins-die"
+            }
         },
         {
             "atk": 8,
@@ -247,7 +270,7 @@
         {
             "atk": 6,
             "hp": 42,
-            "prot": true,
+            "prot": false,
             "name": "Night prowler",
             "icon": "night-prowler.png"
         },
@@ -337,8 +360,8 @@
         },
         {
             "atk": 4,
-            "hp": 97,
-            "prot": true,
+            "hp": 67,
+            "prot": false,
             "name": "Splitting sapling",
             "icon": "splitting-sapling.png"
         },

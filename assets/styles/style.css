@@ -1,247 +1,213 @@
-html, body { width: 100%; height: 100%; min-height: 100%; /*overflow: hidden*/; margin: 0; padding: 0; } 
-#app { position: relative; width: 100%; height: 100%; min-height: 100%; max-width: 468px; /*overflow: hidden*/; margin: 0 auto; }
 
 
-footer {
-    width: 100%;
-    max-width: 468px;
-    margin: 0 auto;
-}
+html, body { width: 100%; height: 100%; min-height: 100%; overflow: hidden; margin: 0; padding: 0; } 
+body { background-image: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-game.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover; font-family: 'Source Sans Pro', sans-serif; }
+
+#app { position: relative; width: 100%; height: 100%; min-height: 100%; max-width: 468px; overflow: hidden; margin: 0 auto; }
+
+/*** **********************************************************************************************
+/*** FOOTER ***************************************************************************************
+/*** ***************************************************************************************** ***/
+footer { position: absolute; left: 0; bottom: 0; right: 0; display: flex; justify-content: center; align-items: center; width: 100%; height: 32px; background: #336699; z-index: 20000; } 
+footer p { color: #FFFFFF; font-size: 18px; font-weight: 600; }
+
+/*** **********************************************************************************************
+/*** HEADER ***************************************************************************************
+/*** ***************************************************************************************** ***/
+header { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center; width: 100%; height: 100px; opacity: 0; } 
+header h1 { padding: 15px; } 
+header h1 img { display: block; width: 100%; height: auto; max-width: 150px; margin: 0 auto; }
+
+/*** **********************************************************************************************
+/*** SPLASH SCREEN ********************************************************************************
+/*** ***************************************************************************************** ***/
+#splashScreen { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 1; z-index: 15000; transition: all 400ms linear; } 
+#splashScreen.fadeOut { opacity: 0; z-index: -1; } 
+#splashScreen .wrapper { position: relative; width: 100%; height: 100%; } 
+#splashScreen .wrapper .mainLogo { position: absolute; top: 50%; left: 50%; width: 100%; text-align: center; transform: translateX(-50%) translateY(-50%); } 
+#splashScreen .wrapper .mainLogo figure figcaption img { display: block; width: 100%; height: auto; max-width: 300px; margin: 0 auto; } 
+#splashScreen .wrapper .mainLogo button { margin: 0 auto; background: none; border: none; } 
+#splashScreen .wrapper .mainLogo button img { display: block; }
+
+/*** **********************************************************************************************
+/*** CREATE THE PLAYERS ***************************************************************************
+/*** ***************************************************************************************** ***/
+#createPlayers { position: absolute; top: 100px; left: 0; right: 0; bottom: 32px; display: none; }
+
+#createPlayers .wrapper { position: relative; height: 100%; } 
+#createPlayers .wrapper #formPlayer { position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); } 
+#createPlayers .wrapper #formPlayer form fieldset label { display: block; font-weight: bold; font-size: 30px; color: #FFFFFF; text-shadow: 0 0 1px #000000; white-space: nowrap; padding: 20px 0; } 
+#createPlayers .wrapper #formPlayer form fieldset input.bubbleInput { display: block; width: 100%; font-weight: bold; font-size: 30px; color: #FFFFFF; text-align: center;  padding: 10px 0; border-radius: 8px; background: rgba(0,0,0,.25);  border: none; outline: none; } 
+#createPlayers .wrapper #formPlayer form fieldset button { display: block; margin: 20px auto; border: none; background: none; }
+#createPlayers .wrapper #formPlayer form fieldset button img { display: block; margin: 0 auto; } 
+
+#createPlayers .wrapper #ready4Battle { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: none; } 
+#createPlayers .wrapper #ready4Battle .wrapper { position: relative; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; } 
+#createPlayers .wrapper #ready4Battle .wrapper .playerNames { position: absolute; width: 100%; max-width: 200px; font-size: 36px; font-weight: bold; color: #FFFFFF; -webkit-text-stroke: 1px black; text-shadow: 3px 3px 0 #000, -1px -1px 0 #000,   1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; opacity: 0; } 
+#createPlayers .wrapper #ready4Battle .wrapper #animPlayerName1 { top: 0; left: 20px; } 
+#createPlayers .wrapper #ready4Battle .wrapper #animPlayerVersus { opacity: 0; transform: scaleZ(0.25); transform-origin: center; } 
+#createPlayers .wrapper #ready4Battle .wrapper #animPlayerName2 { bottom: 0; right: 20px; text-align: right; }
+
+/*** **********************************************************************************************
+/*** CREATE YOUR TEAM *****************************************************************************
+/*** ***************************************************************************************** ***/
+#createTeam { position: absolute; top: 100px; left: 0; right: 0; bottom: 32px; display: none; } 
+#createTeam .wrapper { position: relative; height: 100%; }
+
+#createTeam .wrapper #blockSelection { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: none; background: rgba(255,0,0,.25);  } 
+#createTeam .wrapper .confirmPopin { position: absolute; top: 50%; left: 50%; display: none; width: 75%; transform: translateX(-50%) translateY(-50%); border-radius: 15px; background: #FFFFFF; padding: 15px; z-index: 20000; } 
+#createTeam .wrapper .confirmPopin p { font-size: 24px; text-align: center; font-weight: bold; padding-bottom: 15px; } 
+#createTeam .wrapper .confirmPopin .actions { display: flex; flex-direction: row; justify-content: space-between; } 
+#createTeam .wrapper .confirmPopin .actions button { border: none; background: none; } 
+#createTeam .wrapper .confirmPopin .actions button img { display: block; width: 100%; height: auto; }
+
+#createTeam .wrapper .bubbleText { display: inline-block; padding: 10px; border-radius: 8px; margin: 30px; background: rgba(0,0,0,.25); } 
+#createTeam .wrapper .bubbleText p { color: #FFFFFF; } 
+#createTeam .wrapper .bubbleText p span { font-weight: 600; } 
+#createTeam .wrapper .bubbleText p strong { font-weight: 800; } 
+#createTeam .wrapper #composeTeam { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 320px; height: 200px; margin: 0 auto; background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/team-composing-board.png') no-repeat center; } 
+#createTeam .wrapper #composeTeam p { height: 45px; font-weight: 800; color: #FFFFFF; text-align: center; line-height: 45px; } 
+#createTeam .wrapper #composeTeam .fullTeam { display: flex; flex-direction: row; justify-content: space-between; flex-grow: 1; width: 270px; padding-top: 15px; }
+
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer { position: relative; width: 75px; height: 75px; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .iconChampion figure { position: relative; width: 75px; height: 75px; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .iconChampion figure img { position: absolute; width: 100%; height: 100%; display: block; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .iconChampion figure img.border { border-radius: 8px; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .iconChampion figure img.avatar { border-radius: 8px; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .statChampion { position: absolute; left: -20px; bottom: 0px; right: -20px; z-index: 15; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .statChampion .stats { display: flex; flex-direction: row; align-items: center; justify-content: center; width: 100%; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .statChampion .stats div { display: flex; align-content: center; width: 50%; height: 32px; font-family: sans-serif; font-size: 16px; font-weight: bold; color: #FFFFFF; text-shadow: 0 0 3px #000000; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .statChampion .stats div.championHP { background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-hpoint.png') no-repeat 50% 50%; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .statChampion .stats div.championATK { background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-attack.png') no-repeat 50% 50%; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .statChampion .stats div span { align-self: center; display: block; width: 100%; text-align: center; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .mainStat { position: absolute; top: -10px; left: 50%; width: 32px; height: 32px; transform: translateX(-50%); } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .mainStat img { display: block; width: 100%; height: auto; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .removeChampion { position: absolute; top: 0; left: 0; width: 75px; height: 75px; background: none; border: none; z-index: 20; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .selectStat { display: flex; flex-direction: row; justify-content: space-between; width: 100%; padding-top: 5px; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .selectStat button { border: none; background: none; width: 24px; height: 24px; padding: 0; } 
+#createTeam .wrapper #composeTeam .fullTeam .championPlayer .selectStat button img { display: block; width: 100%; height: auto; } 
+#createTeam .wrapper #composeTeam .confirmTeam { width: 100%; height: 33px; font-size: 16px; font-weight: 800; color: #CCCCCC; border: none; border-radius: 8px; background: rgba(0,0,0,.5); } 
+#createTeam .wrapper #composeTeam .confirmTeam:not(:disabled) { color: #FFFFFF; background: none; } 
+#createTeam .wrapper #listChampions { height: 350px; padding: 15px; } 
+#createTeam .wrapper #listChampions .wrapper { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; } 
+#createTeam .wrapper #listChampions .wrapper button { position: relative; width: 100px; height: 100px; border: none; background: none; padding: 0; margin-bottom: 15px; } 
+#createTeam .wrapper #listChampions .wrapper button img { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: block; width: 100%; height: 100%; border-radius: 8px; }
+
+/*** **********************************************************************************************
+/*** FIGHTING ARENA *******************************************************************************
+/*** ***************************************************************************************** ***/
+#arena { position: absolute; top: 100px; left: 0; right: 0; bottom: 32px; /*DEV*/ display: none; } 
+#arena .wrapper { position: relative; height: 100%; } 
+#arena .wrapper .playerNames { position: relative; display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 15px; } 
+#arena .wrapper .playerNames span.name { display: block; width: 100%; text-align: center; font-size: 18px; font-weight: bold; color: #FFFFFF; } 
+#arena .wrapper .playerNames img { position: absolute; top: 50%; left: 50%; width: 48px; transform: translateX(-50%) translateY(-50%); } 
+
+#arena .wrapper #currentFight { display: flex; flex-direction: row; justify-content: space-evenly; padding: 15px; } 
+#arena .wrapper #currentFight .team { position: relative; width: 100px; height: 300px; } 
+#arena .wrapper #currentFight #team1 { left: 0; right: auto; } 
+#arena .wrapper #currentFight #team2 { left: auto; right: 0; }
+
+#arena .wrapper #currentFight .team .champion { position: absolute; width: 100px; height: 100px; } 
+#arena .wrapper #currentFight .team .champion.attacker { z-index: 5000; } 
+#arena .wrapper #currentFight .team .champion.champFirst { top: 0; }
+#arena .wrapper #currentFight .team .champion.champSecond { top: 130px; }
+#arena .wrapper #currentFight .team .champion.champThird { top: 260px; } 
+#arena .wrapper #currentFight .team .champion .wrapper { position: relative; width: 100%; height: 100%; }
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame { position: absolute; top: 0; left: 0; right: 0; bottom: 0; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure { position: relative; width: 100%; height: 100%; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure img { position: absolute; z-index: 20; }
+#arena .wrapper #currentFight .team .champion .wrapper .dead { filter: grayscale(1); } 
+
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure img.divineShield { top: 50%; left: 50%; width: 100px; height: 100px; z-index: 8; transform: translateX(-50%) translateY(-50%); } 
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure img.championStat { top: 5px; left: 50%; width: 24px; height: 24px; z-index: 10; transform: translateX(-50%); } 
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure img.championBord { top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: auto; z-index: 5; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure img.championIcon { top: 50%; left: 50%; width: 60px; height: auto; border-radius: 100%; transform: translateX(-50%) translateY(-50%); z-index: 2; }
+#arena .wrapper #currentFight .team .champion.ko .wrapper .championFrame figure img.championIcon { filter: grayscale(1); }
+#arena .wrapper #currentFight .team .champion .wrapper .championFrame figure figcaption { display: none; }
+
+#arena .wrapper #currentFight .team .champion .wrapper .championDatas { position: absolute; left: 0; bottom: 0; right: 0; display: flex; flex-direction: row; align-items: center; justify-content: center; width: 100%; z-index: 15; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championDatas div { display: flex; align-content: center; width: 50%; height: 32px; font-family: sans-serif; font-size: 16px; font-weight: bold; color: #FFFFFF; text-shadow: 0 0 3px #000000; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championDatas .championHP { background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-hpoint.png') no-repeat 50% 50%; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championDatas .championATK { background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-attack.png') no-repeat 50% 50%; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championDatas div span { align-self: center; display: block; width: 100%; text-align: center; } 
+
+#arena .wrapper #currentFight .team .champion .wrapper .championHitBox { position: absolute; top: 0; left: 0; right: 0; z-index: 25; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championHitBox .wrapper { position: relative; display: block; width: 100%; height: 100%; } 
+#arena .wrapper #currentFight .team .champion .wrapper .championHitBox .wrapper img { position: absolute; top: 0; opacity: 0; } 
+#arena .wrapper #currentFight #team1 .champion .wrapper .championHitBox .wrapper img { right: 0; }
+#arena .wrapper #currentFight #team2 .champion .wrapper .championHitBox .wrapper img { left: 0; } 
+#arena .wrapper #currentFight .team .champion.ko .wrapper .championHitBox .wrapper img.hitKO { opacity: 1; }
+
+/*** **********************************************************************************************
+/*** VICTORY SCREEN *******************************************************************************
+/*** ***************************************************************************************** ***/
+
+
+#victory { z-index: 2; display: none;  flex-direction: column; position: absolute; top: 30%; width: 100%; height: 100%; justify-content: space-around; align-items:center; text-align: center;}
+
+
+
+
+
+
+
+
 /*** STYLE FOR THE CREATION OF A GAME ***/
 #createPlayer, #selectChampions {
-    display: none;
+display: none;
 }
 
 #championsPool {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+grid-gap: 10px;
 }
-
 .championSelectedIcon,
 .championSelectionIcon {
-    width: 100%;
+width: 100%;
+height: auto;
+min-width: 70px;
+min-height: 70px;
+}
+.gemSelectedIcon {
+    width: 50%;
     height: auto;
-    min-width: 70px;
-    min-height: 70px;
+}
+.gemsWrapper {
+display: flex;
+max-width: 100%;
+}
+.gemsWrapper .gemSelection {
+width: 100%;
+height: auto;
 }
 
 #selectedChampions {
-    background-color: burlywood;
-    margin-bottom: 1em;
-    display: flex;
-    justify-content: space-around;
+background-color: burlywood;
+margin-bottom: 1em;
+display: flex;
+justify-content: space-around;
 }
 
 #selectedChampions > div {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
+max-width: 33%;
+display: flex;
+text-align: center;
+flex-direction: column;
 }
 
 #selectedChampions .selectedChampion {
-    border: 1px solid red;
-    min-width: 70px;
-    min-height: 70px;
+border: 1px solid red;
+min-width: 70px;
+min-height: 70px;
 }
 
 
+.gemSelection:not(.chosenStat),
 .chosen {
-    filter: grayscale();
+filter: grayscale(1);
 }
 
 
-/*** STYLE FOR CHAMPION'S FRAME ***/
-
-
-#arena {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-display: flex;
-flex-direction: row;
-width: 100%;
-background: blue;
-}
-
-#arena .team {
-position: relative;
-width: 100px;
-height: 300px;
-}
-
-#arena #team1 {
-left: 0;
-right: auto;
-background: yellow;
-}
-
-#arena #noMansLand {
-flex-grow: 1;
-}
-
-#arena #team2 {
-left: auto;
-right: 0;
-background: lime;
-}
-
-
-
-
-
-
-.champion {
-position: absolute;
-width: 100px;
-height: 100px;
-}
-
-.champion.champFirst { top: 0; }
-.champion.champSecond { top: 100px; }
-.champion.champThird { top: 200px; }
-
-.champion .wrapper {
-position: relative;
-width: 100%;
-height: 100%;
-}
-.champion .wrapper .championFrame {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-}
-
-.champion .wrapper .championFrame figure {
-position: relative;
-width: 100%;
-height: 100%;
-}
-
-.champion .wrapper .championFrame figure img {
-position: absolute;
-z-index: 20;
-}
-
-.champion .wrapper .championFrame figure img.championStat { top: 5px; left: 50%; width: 24px; height: 24px; z-index: 10; transform: translateX(-50%); } 
-.champion .wrapper .championFrame figure img.championBord { top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: auto; z-index: 5; } 
-.champion .wrapper .championFrame figure img.championIcon { top: 50%; left: 50%; width: 60px; height: auto; border-radius: 100%; transform: translateX(-50%) translateY(-50%); }
-.champion.ko .wrapper .championFrame figure img.championIcon { filter: grayscale(1); }
-.champion .wrapper .championFrame figure figcaption { display: none; }
-
-.champion .wrapper .championDatas {
-position: absolute;
-left: 0;
-bottom: 0;
-right: 0;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-width: 100%;
-z-index: 15;
-}
-
-.champion .wrapper .championDatas div {
-display: flex;
-align-content: center;
-width: 50%;
-height: 32px;
-font-family: sans-serif;
-font-size: 16px;
-font-weight: bold;
-color: #FFFFFF;
-text-shadow: 0 0 3px #000000;
-}
-
-.champion .wrapper .championDatas .championHP {
-background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-hpoint.png') no-repeat 50% 50%;
-}
-
-.champion .wrapper .championDatas .championATK {
-background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/bg-attack.png') no-repeat 50% 50%;
-}
-
-.champion .wrapper .championDatas div span {
-align-self: center;
-display: block;
-width: 100%;
-text-align: center;
-}
-
-
-.champion .wrapper .championHitBox {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 25;
-}
-
-.champion .wrapper .championHitBox .wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.champion .wrapper .championHitBox .wrapper img {
-position: absolute;
-top: 0;
-opacity: 0;
-}
-
-.champion.attacks .wrapper .championHitBox .wrapper img.hit {
-    animation-name: showHit;
-    animation-duration: 3000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(0,1,1,1);
-}
-
-#team1 .champion .wrapper .championHitBox .wrapper img {
-right: 0;
-}
-#team2 .champion .wrapper .championHitBox .wrapper img {
-left: 0;
-}
-
-.champion.ko .wrapper .championHitBox .wrapper img.hitKO {
-opacity: 1;
-}
-
-.champion.attacks {
-animation-duration: 3000ms;
-animation-iteration-count: infinite;
-animation-timing-function: cubic-bezier(0,1,1,1);
-}
-
-
-
-
-#team1 .champion.attacks.attacker1Opponent1 { animation-name: team1attacker1Opponent1; }
-#team1 .champion.attacks.attacker1Opponent2 { animation-name: team1attacker1Opponent2; }
-#team1 .champion.attacks.attacker1Opponent3 { animation-name: team1attacker1Opponent3; }
-
-#team1 .champion.attacks.attacker2Opponent1 { animation-name: team1attacker2Opponent1; }
-#team1 .champion.attacks.attacker2Opponent2 { animation-name: team1attacker2Opponent2; }
-#team1 .champion.attacks.attacker2Opponent3 { animation-name: team1attacker2Opponent3; }
-
-#team1 .champion.attacks.attacker3Opponent1 { animation-name: team1attacker3Opponent1; }
-#team1 .champion.attacks.attacker3Opponent2 { animation-name: team1attacker3Opponent2; }
-#team1 .champion.attacks.attacker3Opponent3 { animation-name: team1attacker3Opponent3; }
-
-
-#team2 .champion.attacks.attacker1Opponent1 { animation-name: team2attacker1Opponent1; }
-#team2 .champion.attacks.attacker1Opponent2 { animation-name: team2attacker1Opponent2; }
-#team2 .champion.attacks.attacker1Opponent3 { animation-name: team2attacker1Opponent3; }
-
-#team2 .champion.attacks.attacker2Opponent1 { animation-name: team2attacker2Opponent1; }
-#team2 .champion.attacks.attacker2Opponent2 { animation-name: team2attacker2Opponent2; }
-#team2 .champion.attacks.attacker2Opponent3 { animation-name: team2attacker2Opponent3; }
-
-#team2 .champion.attacks.attacker3Opponent1 { animation-name: team2attacker3Opponent1; }
-#team2 .champion.attacks.attacker3Opponent2 { animation-name: team2attacker3Opponent2; }
-#team2 .champion.attacks.attacker3Opponent3 { animation-name: team2attacker3Opponent3; }
+.dev {display: none !important;}
+.wrk {display: block !important;}

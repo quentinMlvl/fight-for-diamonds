@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,58 +9,152 @@
     <link rel="stylesheet" href="assets/styles/reset.css">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
+
 <body>
     <main id="app">
-        <section id="startGameSection">
-            <button id="startGame">[ START NEW GAME ]</button>
 
-            <div id="createPlayer">
-                <form action="">
-                    <fieldset>
-                        <div class="formRow">
-                            <div class="formCell"><label for="playerName">Player name: </label></div>
-                            <div class="formCell"><input type="text" name="playerName" id="playerName"></div>
+        <header>
+            <h1><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/mini-ffd-title.png"
+                    alt="Fight for Diamonds!" title="Fight for Diamonds!"></h1>
+        </header>
+
+		<!-- [OK] SPLASH SCREEN -->
+		<section id="splashScreen">
+			<div class="wrapper">
+				<div class="mainLogo">
+					<figure>
+						<figcaption>
+							<img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/ffd-title.png" alt="Fight for Diamonds!" title="Fight for Diamonds!">
+						</figcaption>
+					</figure>
+					<button id="startGame"><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/button-start.png" alt="Start fighting!" title="Start fighting!"></button>
+				</div>
+			</div>
+		</section>
+
+		<!-- CREATE PLAYER(S) -->
+        <section id="createPlayers">
+
+			<div class="wrapper">
+
+				<div id="formPlayer">
+					<form action="?">
+						<fieldset>
+							<label for="playerName">Player <span class="playerNumber">1</span>, enter your name:</label>
+							<input type="text" name="playerName" id="playerName" class="bubbleInput" maxlength="20" required="required">
+							<button type="submit" id="savePlayer"><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/button-enter-fight.png" alt="Enter the fight!" title="Enter the fight!"></button>
+						</fieldset>
+					</form>
+				</div>
+
+				<div id="ready4Battle">
+					<div class="wrapper">
+						<div id="animPlayerVersus"><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/versus.png" alt="[playerName1] VS. [playerName2]" title="[playerName1] VS. [playerName2]"></div>
+						<div id="animPlayerName1" class="playerNames">Nebuchadnezzar</div>
+						<div id="animPlayerName2" class="playerNames">Eanna-szarra-usur</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+        <!-- CREATE TEAM(S) -->
+        <section id="createTeam">
+            <div class="wrapper">
+                <div id="playerNameText" class="bubbleText">
+                    <p>Player <span class="playerName"></span>, select your <strong>champions!</strong></p>
+                </div>
+                <div id="composeTeam">
+                    <p>Your current team: </p>
+                    <div class="fullTeam">
+                        <div id="championFirst" class="championPlayer">
+                            <div class="iconChampion">
+
+                            </div>
+                            <div class="statChampion">
+                                <div class="stats">
+                                </div>
+                            </div>
                         </div>
-                        <div class="formRow">
-                            <div class="formCell formButn"><button type="submit">Save player</button></div>
+                        <div id="championSecond" class="championPlayer">
+                            <div class="iconChampion">
+
+                            </div>
+                            <div class="statChampion">
+                                <div class="stats">
+
+                                </div>
+                            </div>
                         </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div id="selectChampions">
-                <h2><span id="selectChampionsTitleSpan"></span>Select your champions</h2>
-                <div id="teamSelection">
-                    <h3>Your team : </h3>
-                    <div id="selectedChampions">
-                        <div id="firstSelected">
-                            <div>First</div>
-                            <div class="selectedChampion"></div>
-                        </div>
-                        <div id="secondSelected">
-                            <div>Second</div>
-                            <div class="selectedChampion"></div>
-                        </div>
-                        <div id="thirdSelected">
-                            <div>Third</div>
-                            <div class="selectedChampion"></div>
+                        <div id="championThird" class="championPlayer">
+                            <div class="iconChampion">
+
+                            </div>
+                            <div class="statChampion">
+                                <div class="stats">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <button class="confirmTeam" disabled="">Confirm your team!</button>
                 </div>
-                <div id="championsPool"></div>
+
+                <div id="listChampions">
+                    <div class="wrapper"></div>
+                </div>
+
+                <div id="blockSelection"></div>
+                <div class="confirmPopin">
+					<p>Confirm your team?</p>
+					<div class="actions">
+						<button id="cancelPopinBtn"><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/narp.png" alt="No, wait!" title="No, wait!"></button>
+						<button id="confirmPopinBtn"><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/yarp.png" alt="Yes, let's fight!" title="Yes, let's fight!"></button>
+					</div>
+				</div>
             </div>
         </section>
+
+        <!-- FIGHTING ARENA -->
+        <section id="arena">
+
+			<div class="wrapper">
+
+				<div class="playerNames">
+					<span id="player1Name" class="name"></span>
+					<span id="player2Name" class="name"></span>
+					<img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/versus.png" alt="" title="">
+				</div>
+				<div id="currentFight">
+
+					<section id="team1" class="team"></section>
+					<section id="team2" class="team"></section>
+
+				</div>
+
+			</div>
+
+		</section>
+
+        <section id="victory">
+            <p id="victoryResults"></p>
+            <button id="restartGame">Restart Game</button>
+        </section>
+
 
         <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-agi.png"> -->
         <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-str.png"> -->
         <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-int.png"> -->
 
-        <div id="splashScreen">
-            <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/ffd-title.png" alt="Fight for Diamonds!" title="Fight for Diamonds!">
-        </div>
-
     </main>
-    <footer><p>Coded with love by Quentin & Marc ♥</p></footer>
-    <script src="index.js" type="module" defer></script>
+    <footer>
+        <p>Coded with love by Quentin & Kamui ♥</p>
+    </footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./index.js" type="module" defer></script>
+	<script src="./src/gameStart/app.js" defer></script>
 </body>
+
 </html>
