@@ -1,6 +1,4 @@
-import createArena from "../arena/arena.js"
 import { baseImgUrl } from "../utils.js"
-
 
 const createTeam = document.querySelector("#createTeam")
 const createTeamWrapper = createTeam.querySelector("#createTeam .wrapper")
@@ -24,8 +22,8 @@ const confirmPopinBtn = confirmPopin.querySelector("#confirmPopinBtn")
 
 
 function createChampionsSelection() { 
+    confirmButton.disabled = true
     const player = globalThis.currentPlayer;
-    
     listChampions.style.display = "flex"
     playerNameTitleSpan.innerHTML = ` ${ player.name } `
 
@@ -49,38 +47,6 @@ function createChampionsSelection() {
         
         champButton.append(champIcon, champFrame)
         listChampions.append(champButton)
-    })
-
-    confirmButton.addEventListener("click", (e) => {
-        e.preventDefault()
-        confirmBlock.style.display = "block"
-        confirmPopin.style.display = "block"
-        
-        // TODO : blockSelection ne prend pas toute la taille de la fenêtre
-
-        confirmPopinBtn.addEventListener("click", e => {
-            e.preventDefault()
-            if(globalThis.team2.isReady){
-                createTeam.style.display = "none"
-                createArena()
-            }else {
-                globalThis.team1.fighters.forEach((fighters, i) => {
-                    removeChampionFromSelection(fullTeam.children[i], fighters, globalThis.team1)
-                });
-                globalThis.currentPlayer = globalThis.player2
-                globalThis.currentTeam = globalThis.team2
-
-                createChampionsSelection(globalThis.player2, globalThis.team2)
-                confirmBlock.style.display = "none"
-                confirmPopin.style.display = "none"
-            }
-        })
-
-        cancelPopinBtn.addEventListener("click", e => {
-            e.preventDefault()
-            confirmBlock.style.display = "none"
-            confirmPopin.style.display = "none"
-        }) 
     })
 }
 
@@ -159,22 +125,21 @@ function selectChampion(champ) {
 
 
     addSpeSelection(championSelectedDiv, championIndex)
-
-
-    checkTeamReady()
-
+    
     removeChampionBtn.addEventListener("click", onChampionSelectedClick, false)
-
+    
     function onChampionSelectedClick(event) {
         event.preventDefault()
         team.removeChampion(championIndex)
         checkTeamReady()
-
+        
         const championSelected = fullTeam.children[championIndex]
-
+        
         removeChampionFromSelection(championSelected, champ)
     }
 
+    checkTeamReady()
+    
     return true;
 }
 
@@ -233,12 +198,69 @@ function addSpeIcon(node, championIndex, stat){
 
         const mainStatIcon = fullTeam.children[championIndex].querySelector(".mainStat img")
         mainStatIcon.src = gem.src
-    })
+    }, false)
 
     return gem
 }
 
-function checkTeamReady(){  confirmButton.disabled = (!globalThis.currentTeam.isReady) }
+
+function checkTeamReady(){
+    confirmButton.disabled = (!globalThis.currentTeam.isReady)
+
+    function confirmButtonClicked(e) {
+        e.stopPropagation()
+        e.preventDefault()
+        confirmBlock.style.display = "block"
+        confirmPopin.style.display = "block"
+        
+        confirmPopinBtn.addEventListener("click", confirmPopinBtnClicked, false)
+
+        cancelPopinBtn.addEventListener("click", e => {
+            e.preventDefault()
+                        
+            confirmPopinBtn.removeEventListener("click", confirmPopinBtnClicked)
+            confirmPopin.removeEventListener("click", confirmButtonClicked)
+            
+            confirmBlock.style.display = "none"
+            confirmPopin.style.display = "none"
+        }, false)
+    }
+
+    function confirmPopinBtnClicked(e) {
+        e.stopPropagation()
+        e.preventDefault()
+        confirmPopinBtn.removeEventListener("click", confirmPopinBtnClicked)
+        confirmPopin.removeEventListener("click", confirmButtonClicked, false)
+        if(globalThis.team2.isReady){
+            createTeam.style.display = "none"
+            const createArenaEvent = new CustomEvent("createArenaEvent")
+            document.dispatchEvent(createArenaEvent)
+
+        }else {
+            globalThis.team1.fighters.forEach((fighters, i) => {
+                removeChampionFromSelection(fullTeam.children[i], fighters, globalThis.team1)
+            });
+            globalThis.currentPlayer = globalThis.player2
+            globalThis.currentTeam = globalThis.team2
+            
+            confirmBlock.style.display = "none"
+            confirmPopin.style.display = "none"
+            
+            listChampions.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            createChampionsSelection(globalThis.player2, globalThis.team2)
+        }
+    }
+    
+    if (globalThis.currentTeam.isReady) {
+        confirmButton.addEventListener("click", confirmButtonClicked, false)
+    } else {
+        confirmButton.removeEventListener("click", confirmButtonClicked)
+    }
+    
+ }
 
 function removeChampionFromSelection(championSelectedDiv, champ){
     const champButton = document.querySelector(`#listChampions>.wrapper>button[data-champion-name='${champ.id}']`)
@@ -252,16 +274,16 @@ function removeChampionFromSelection(championSelectedDiv, champ){
     const stats = championSelectedDiv.querySelector(".stats")
     const hpDiv = championSelectedDiv.querySelector(".championHP")
     const atkDiv = championSelectedDiv.querySelector(".championATK")
-        
+    const mainStat = championSelectedDiv.querySelector(".mainStat")
     const removeChampionBtn = championSelectedDiv.querySelector(".removeChampion")
     
-    stats.removeChild(hpDiv);
-    stats.removeChild(atkDiv);
+    if(hpDiv) stats.removeChild(hpDiv);
+    if(atkDiv) stats.removeChild(atkDiv);
 
-    championSelectedDiv.removeChild(removeChampionBtn); 
-    championSelectedDiv.removeChild(championSelectedDiv.querySelector(".mainStat"))
-    championSelectedDiv.removeChild(selectStat)
-    championIcon.removeChild(figure)
+    if(removeChampionBtn) championSelectedDiv.removeChild(removeChampionBtn); 
+    if(mainStat) championSelectedDiv.removeChild(mainStat)
+    if (selectStat) championSelectedDiv.removeChild(selectStat)
+    if(figure) championIcon.removeChild(figure)
 }
 
 export default createChampionsSelection

@@ -1,10 +1,10 @@
 import { baseImgUrl } from "../utils.js"
 
-const fightInterval = 1700
+const fightInterval = 2000
 const arena = document.querySelector("#arena")
 
-const team1 = document.querySelector('#team1')
-const team2 = document.querySelector('#team2')
+const team1Div = document.querySelector('#team1')
+const team2Div = document.querySelector('#team2')
 
 async function createArena(){
     arena.style.display = "block"
@@ -28,9 +28,9 @@ function createFighters(numTeam, fighters){
         const championDiv = document.createElement("div");
         
         if (numTeam == 1) {
-            team1.append(championDiv)
+            team1Div.append(championDiv)
         } else {
-            team2.append(championDiv)
+            team2Div.append(championDiv)
         }
         
 
@@ -140,7 +140,13 @@ async function teamFight() {
     let secondTeamFightersCount = 0;
     
     const firstTeam = toss(team1, team2);
+
     const secondTeam = (firstTeam.id == team2.id) ? team1 : team2;
+    
+    const classBegin = (firstTeam.id == team2.id) ? team2Div : team1Div
+    const classFollow = (firstTeam.id == team1.id) ? team2Div : team1Div
+    classBegin.classList.add("begin")
+    classFollow.classList.add("folow")
     while (team1.allFightersNotDead && team2.allFightersNotDead){
         let currentFighter1 = firstTeam.fighters[firstTeamFightersCount];
         let currentFighter2 = secondTeam.fighters[secondTeamFightersCount];
@@ -158,7 +164,8 @@ async function teamFight() {
 
 function toss(team1, team2) {
     const randomNbr = (Math.floor(Math.random() * 100) + 1);
-    return (randomNbr % 2 == 0) ? team2 : team1;
+    return (randomNbr%2 == 0) ? team2 : team1;
+
 }
 
 async function fight1v1(fighter1, fighter2, team1, team2) {
@@ -205,15 +212,20 @@ function launchFightAnim(attacker, teamAttacker, opponent, teamOpponent){
     const opponentDiv = document.querySelector(opponentIdSearched);
     
     attacker.attacks(opponent)
-    
-    // TODO JSP KESKISEPASS avec les anims mais c'est le bazar ...
-    // TODO Du coup anim désactiver pour le moment
-    // attackAnim(attackerDiv, opponentDiv)
+ 
+    attackAnim(attackerDiv, opponentDiv)
     // TODO Optionnel : lancer les updateUI à un certain moment de l'anim ????
     updateUI(attacker, attackerDiv)
     updateUI(opponent, opponentDiv)
 
 }
+
+
+
+
+
+
+
 
 function updateUI(champ, elem) {
 
@@ -226,8 +238,8 @@ function updateUI(champ, elem) {
     if(!champ.isAlive) figure.classList.add("dead")
 
     // Remove divineShield
-    const dS = figure.querySelector(".divineShield")
-    if(dS && !champ.prot) figure.removeChild(dS)
+    const divineShield = figure.querySelector(".divineShield")
+    if(divineShield && !champ.prot) figure.removeChild(divineShield)
 }
 
 function displayVictoryScreen(winnerTeam) {
@@ -235,11 +247,12 @@ function displayVictoryScreen(winnerTeam) {
 
     arena.style.display = " none"
         
-    // TODO : Le screen de victoire
     const victoryScreen = document.querySelector("#victory")
     
-    const result = document.querySelector("#victoryResults")
-    result.innerHTML = `Congratulations ${ winner.name }, you win this fight !!! <br>Here's your diamonds 💎💎💎`
+    // const result = document.querySelector("#winnerContent")
+    const winName = document.querySelector("#winnerName")
+    winName.innerHTML = `${ winner.name }`
+    winnerAnim.play()
     
     const restartGameBtn = document.querySelector("#restartGame")
     
@@ -251,7 +264,7 @@ function displayVictoryScreen(winnerTeam) {
         globalThis.team2 = null
         globalThis.champions = null
         location.reload()
-    })
+    }, false)
     
 }
 

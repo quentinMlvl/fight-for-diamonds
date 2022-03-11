@@ -13,9 +13,6 @@ document.querySelector('#startGame').addEventListener('click', () => {
 /* ***  *** */
 function attackAnim(attack, target){
     
-    // const attack = document.querySelector('#team2Champ3') /* DEV */
-    // const target = document.querySelector('#team1Champ3') /* DEV */
-    
     const hitImg = attack.querySelector('.hit')
     const attackPos = attack.getBoundingClientRect();
     const targetPos = target.getBoundingClientRect();
@@ -52,14 +49,23 @@ function resetAttacker(attacker){
     attacker.classList.remove('attacker')
 }
 
-const versusAnim = gsap.timeline()
-                       .pause()
-                       .to('#ready4Battle', {display: 'block', duration: 0})
-                       .to('#animPlayerName1', {opacity: 1, top: '30%', ease: 'back'})
-                       .to('#animPlayerVersus', {opacity: 1, scale: 1.5, ease: 'ease-out'})
-                       .to('#animPlayerVersus', {opacity: 1, scale: .5, ease: 'linear'})
-                       .to('#animPlayerName2', {opacity: 1, bottom: '30%', ease: 'back'})
-                       .to('#animPlayerName1', {left: '200%', top: '30%', ease: 'back', duration: 1}, '<+=3')
-                       .to('#animPlayerName2', {right: '200%', top: '30%', ease: 'back', duration: 1}, '<')
-                       .to('#animPlayerVersus', {opacity: 0, scale: 2, ease: 'back'}, '<+=.2')
-                       .to('#createTeam', {display: 'block', duration: .1})
+const versusAnim = gsap.timeline().pause()
+      versusAnim.to('#ready4Battle', {display: 'block', duration: 0})
+                .to('#animPlayerName1', {opacity: 1, top: '30%', ease: 'back'})
+                .to('#animPlayerVersus', {opacity: 1, scale: 1.5, ease: 'ease-out'})
+                .to('#animPlayerVersus', {opacity: 1, scale: .5, ease: 'linear'})
+                .to('#animPlayerName2', {opacity: 1, bottom: '30%', ease: 'back'})
+                .to('#animPlayerName1', {left: '200%', top: '30%', ease: 'back', duration: 1}, '<+=3')
+                .to('#animPlayerName2', {right: '200%', top: '30%', ease: 'back', duration: 1}, '<')
+                .to('#animPlayerVersus', {opacity: 0, scale: 2, ease: 'back'}, '<+=.2')
+                .to('#createTeam', {display: 'block', duration: .1})
+
+const winnerAnim = gsap.timeline().pause()
+      winnerAnim.to('#winnerContent', {opacity: 1, scale: 1, ease: 'back'})
+                .to('#winnerTitle', {opacity: 1, top: '-60px', ease: 'back'})
+                .to('#winnerBoard', {opacity: 1, scale: 2, ease: 'back'})
+                .to('#winnerBoard', {scale: 1, ease: 'back'})
+                .to('#winnerChest', {opacity: 1, rotate: '1080deg', ease: 'back'})
+                .to('#winnerName',  {opacity: 1, scale: 2, ease: 'linear'})
+                .to('#winnerName',  {scale: 1, ease: 'back'})
+                .to('#restartGame',  {opacity: 1}, '<+=3')

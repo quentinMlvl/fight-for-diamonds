@@ -23,8 +23,6 @@ class Champion {
 
         const defenderDmg = opponent.dealsDmg(this.stat)
         const attackerDmgTaken = this.takesDmg(defenderDmg);
-
-        // console.log(`${ this.name } deals ${ defenderDmgTaken } dmg to ${ opponent.name } (HP: ${opponent.hp}) and take ${ attackerDmgTaken } dmg (HP: ${this.hp})`);
     }
     
     dealsDmg(statOpp){

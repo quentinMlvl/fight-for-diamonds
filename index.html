@@ -69,36 +69,26 @@
                     <p>Your current team: </p>
                     <div class="fullTeam">
                         <div id="championFirst" class="championPlayer">
-                            <div class="iconChampion">
-
-                            </div>
+                            <div class="iconChampion"></div>
                             <div class="statChampion">
                                 <div class="stats">
                                 </div>
                             </div>
                         </div>
                         <div id="championSecond" class="championPlayer">
-                            <div class="iconChampion">
-
-                            </div>
+                            <div class="iconChampion"></div>
                             <div class="statChampion">
-                                <div class="stats">
-
-                                </div>
+                                <div class="stats"></div>
                             </div>
                         </div>
                         <div id="championThird" class="championPlayer">
-                            <div class="iconChampion">
-
-                            </div>
+                            <div class="iconChampion"></div>
                             <div class="statChampion">
-                                <div class="stats">
-
-                                </div>
+                                <div class="stats"></div>
                             </div>
                         </div>
                     </div>
-                    <button class="confirmTeam" disabled="">Confirm your team!</button>
+                    <button class="confirmTeam" disabled="disabled">Confirm your team!</button>
                 </div>
 
                 <div id="listChampions">
@@ -138,14 +128,20 @@
 		</section>
 
         <section id="victory">
-            <p id="victoryResults"></p>
-            <button id="restartGame">Restart Game</button>
+			<div class="wrapper">
+				<div class="content" id="winnerContent">
+					<div class="wrapContent">
+						<figure>
+							<img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/winner-title.png" alt="Winner!" title="Winner!" id="winnerTitle">
+							<img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/winner-chest.png" alt="Winner!" title="Winner!" id="winnerChest">
+							<img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/winner-board.png" alt="Winner!" title="Winner!" id="winnerBoard">
+							<figcaption id="winnerName"></figcaption>
+						</figure>
+						<button id="restartGame"><img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/button-restart.png" alt="Restart game!" title="Restart game!"></button>
+					</div>
+				</div>
+			</div>
         </section>
-
-
-        <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-agi.png"> -->
-        <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-str.png"> -->
-        <!-- <img src="https://www.marc-grondin.com/wcs-idlegame/assets/img/template/stat-int.png"> -->
 
     </main>
     <footer>

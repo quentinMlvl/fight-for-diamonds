@@ -54,7 +54,7 @@ header h1 img { display: block; width: 100%; height: auto; max-width: 150px; mar
 #createTeam { position: absolute; top: 100px; left: 0; right: 0; bottom: 32px; display: none; } 
 #createTeam .wrapper { position: relative; height: 100%; }
 
-#createTeam .wrapper #blockSelection { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: none; background: rgba(255,0,0,.25);  } 
+#createTeam .wrapper #blockSelection { position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: none; z-index: 5000; } 
 #createTeam .wrapper .confirmPopin { position: absolute; top: 50%; left: 50%; display: none; width: 75%; transform: translateX(-50%) translateY(-50%); border-radius: 15px; background: #FFFFFF; padding: 15px; z-index: 20000; } 
 #createTeam .wrapper .confirmPopin p { font-size: 24px; text-align: center; font-weight: bold; padding-bottom: 15px; } 
 #createTeam .wrapper .confirmPopin .actions { display: flex; flex-direction: row; justify-content: space-between; } 
@@ -104,14 +104,16 @@ header h1 img { display: block; width: 100%; height: auto; max-width: 150px; mar
 
 #arena .wrapper #currentFight { display: flex; flex-direction: row; justify-content: space-evenly; padding: 15px; } 
 #arena .wrapper #currentFight .team { position: relative; width: 100px; height: 300px; } 
+#arena .wrapper #currentFight #team1.begin { background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/coin-first.png') no-repeat top left; }
+#arena .wrapper #currentFight #team2.begin { background: url('https://www.marc-grondin.com/wcs-idlegame/assets/img/template/coin-first.png') no-repeat top right; }
 #arena .wrapper #currentFight #team1 { left: 0; right: auto; } 
 #arena .wrapper #currentFight #team2 { left: auto; right: 0; }
 
 #arena .wrapper #currentFight .team .champion { position: absolute; width: 100px; height: 100px; } 
 #arena .wrapper #currentFight .team .champion.attacker { z-index: 5000; } 
-#arena .wrapper #currentFight .team .champion.champFirst { top: 0; }
-#arena .wrapper #currentFight .team .champion.champSecond { top: 130px; }
-#arena .wrapper #currentFight .team .champion.champThird { top: 260px; } 
+#arena .wrapper #currentFight .team .champion.champFirst { top: 50px; }
+#arena .wrapper #currentFight .team .champion.champSecond { top: 180px; }
+#arena .wrapper #currentFight .team .champion.champThird { top: 310px; } 
 #arena .wrapper #currentFight .team .champion .wrapper { position: relative; width: 100%; height: 100%; }
 #arena .wrapper #currentFight .team .champion .wrapper .championFrame { position: absolute; top: 0; left: 0; right: 0; bottom: 0; } 
 #arena .wrapper #currentFight .team .champion .wrapper .championFrame figure { position: relative; width: 100%; height: 100%; } 
@@ -141,10 +143,17 @@ header h1 img { display: block; width: 100%; height: auto; max-width: 150px; mar
 /*** **********************************************************************************************
 /*** VICTORY SCREEN *******************************************************************************
 /*** ***************************************************************************************** ***/
-
-
-#victory { z-index: 2; display: none;  flex-direction: column; position: absolute; top: 30%; width: 100%; height: 100%; justify-content: space-around; align-items:center; text-align: center;}
-
+#victory { position: absolute; top: 100px; left: 0; right: 0; bottom: 32px; display: none; } 
+#victory .wrapper { position: relative; width: 100%; height: 100%; } 
+#victory .wrapper .content { position: absolute; top: 50%; left: 50%; width: 90%; max-width: 300px; background: #FFFFFF; border-radius: 15px; opacity: 0; transform: translateX(-50%) translateY(-50%) scale(.2); } 
+#victory .wrapper .content .wrapContent { position: relative; width: 100%; height: 100%; } 
+#victory .wrapper .content .wrapContent figure { position: relative; height: 100%; } 
+#victory .wrapper .content .wrapContent figure img { display: block; } 
+#victory .wrapper .content .wrapContent figure img#winnerTitle { position: absolute; top: 0; left: 50%; opacity: 0; transform: translateX(-50%); z-index: 5; } 
+#victory .wrapper .content .wrapContent figure img#winnerChest { position: absolute; top: 120px; left: 50%; opacity: 0; transform: translateX(-50%); z-index: 5; } 
+#victory .wrapper .content .wrapContent figure img#winnerBoard { opacity: 0; } 
+#victory .wrapper .content .wrapContent figure figcaption { display: block; text-align: center; font-size: 36px; font-weight: bold; padding: 0 0 30px 0; opacity: 0; } 
+#victory .wrapper .content .wrapContent #restartGame { position: absolute; bottom: -45px; left: 50%; border: none; background: none; opacity: 0; transform: translateX(-50%); } 
 
 
 

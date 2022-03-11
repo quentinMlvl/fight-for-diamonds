@@ -155,7 +155,7 @@
         },
         {
             "atk": 1,
-            "hp": 7,
+            "hp": 78,
             "prot": false,
             "name": "Friendly bartender",
             "icon": "friendly-bartender.png"
@@ -180,6 +180,13 @@
             "prot": true,
             "name": "Hagatha the witch",
             "icon": "hagatha-the-witch.png"
+        },
+        {
+            "atk": 2,
+            "hp": 27,
+            "prot": false,
+            "name": "Hercules",
+            "icon": "hercules.png"
         },
         {
             "atk": 10,
@@ -262,7 +269,7 @@
         },
         {
             "atk": 1,
-            "hp": 56,
+            "hp": 86,
             "prot": true,
             "name": "Morgl the oracle",
             "icon": "morgl-the-oracle.png"

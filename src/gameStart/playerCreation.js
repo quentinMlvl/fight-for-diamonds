@@ -16,14 +16,14 @@ const spanPlayerNumber = createPlayerTitle.querySelector(".playerNumber")
 
 const playerName1 = document.querySelector("#animPlayerName1")
 const playerName2 = document.querySelector("#animPlayerName2")
-const animPlayerVersus = document.querySelector("#animPlayerVersus")
+const animPlayerVersus = document.querySelector("#animPlayerVersus img")
 
 async function addPlayerCreationForm(){
     startGameButton.addEventListener("click", () => {
         startGameButton.style.display = "none"
         createPlayer.style.display = "block"
         spanPlayerNumber.innerHTML = "1"
-    })
+    }, false)
     
     const form = createPlayerForm.querySelector("form");
     await form.addEventListener("submit",async (e) => {
@@ -31,8 +31,6 @@ async function addPlayerCreationForm(){
     
         const name = createPlayerName.value
         
-        // TODO : check if name !== ''
-
         if (!globalThis.player1?.name){
             globalThis.player1 = new Player(name)
             globalThis.team1 = new Team(globalThis.player1.id)
@@ -51,7 +49,7 @@ async function addPlayerCreationForm(){
             playerName2.textContent = globalThis.player2.name
 
             animPlayerVersus.alt = `${globalThis.player1.name} VS. ${globalThis.player2.name}`
-            animPlayerVersus.src = `${globalThis.player1.name} VS. ${globalThis.player2.name}`
+            animPlayerVersus.title = `${globalThis.player1.name} VS. ${globalThis.player2.name}`
 
 
             createPlayerForm.style.display = 'none'
@@ -63,7 +61,7 @@ async function addPlayerCreationForm(){
             
             await createChampionsSelection()
         }
-    })
+    }, false)
 }
 
 export default addPlayerCreationForm;
